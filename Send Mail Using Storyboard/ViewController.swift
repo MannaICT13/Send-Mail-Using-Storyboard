@@ -7,14 +7,34 @@
 //
 
 import UIKit
+import MessageUI
 
-class ViewController: UIViewController {
+class ViewController: UIViewController,MFMailComposeViewControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
       
     }
 
-
+    @IBAction func sendBtnAction(_ sender: UIButton) {
+        
+        let mailController = MFMailComposeViewController()
+        mailController.mailComposeDelegate = self
+        mailController.setToRecipients(<#T##toRecipients: [String]?##[String]?#>)
+        mailController.setCcRecipients(<#T##ccRecipients: [String]?##[String]?#>)
+        mailController.setSubject(<#T##subject: String##String#>)
+        mailController.setMessageBody(<#T##body: String##String#>, isHTML: <#T##Bool#>)
+        
+    }
+    
+    
+    
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        
+    }
+    
 }
 
