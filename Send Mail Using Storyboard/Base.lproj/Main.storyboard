@@ -26,7 +26,7 @@
                                     <color key="titleColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="sendBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Uzd-Xa-eEL"/>
+                                    <action selector="sendAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gd5-s4-jgH"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Subject:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z0T-j4-b6D">
@@ -64,6 +64,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="bodyTextView" destination="xqD-fi-jc3" id="Y2r-aK-qmm"/>
+                        <outlet property="ccTextField" destination="L2o-2C-1gP" id="LZ7-I1-x1c"/>
+                        <outlet property="subjectTextField" destination="Z0T-j4-b6D" id="Fg4-lA-PUb"/>
+                        <outlet property="toTextField" destination="NYO-gs-lsW" id="uS8-1K-QM0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

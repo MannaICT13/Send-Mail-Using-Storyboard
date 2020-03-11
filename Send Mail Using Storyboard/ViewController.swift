@@ -9,32 +9,55 @@
 import UIKit
 import MessageUI
 
-class ViewController: UIViewController,MFMailComposeViewControllerDelegate {
+class ViewController: UIViewController {
 
+    @IBOutlet weak var toTextField: UITextField!
+    
+    @IBOutlet weak var ccTextField: UITextField!
+    
+    @IBOutlet weak var subjectTextField: UITextField!
+    
+    
+    @IBOutlet weak var bodyTextView: UITextView!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-      
     }
 
-    @IBAction func sendBtnAction(_ sender: UIButton) {
+    @IBAction func sendAction(_ sender: Any) {
+         
+        composeMail()
         
-        let mailController = MFMailComposeViewController()
-        mailController.mailComposeDelegate = self
-        mailController.setToRecipients(<#T##toRecipients: [String]?##[String]?#>)
-        mailController.setCcRecipients(<#T##ccRecipients: [String]?##[String]?#>)
-        mailController.setSubject(<#T##subject: String##String#>)
-        mailController.setMessageBody(<#T##body: String##String#>, isHTML: <#T##Bool#>)
         
+    }
+
+    func composeMail(){
+        
+        
+              guard MFMailComposeViewController.canSendMail() else {
+                  return
+              }
+              
+              let mailController = MFMailComposeViewController()
+              mailController.mailComposeDelegate = self
+              mailController.setToRecipients([toTextField.text!])
+              mailController.setCcRecipients([ccTextField.text!])
+              mailController.setSubject(subjectTextField.text!)
+              mailController.setMessageBody(bodyTextView.text, isHTML: false)
+              self.present(mailController, animated: true, completion: nil)
     }
     
     
     
+   
+    
+}
+extension ViewController : MFMailComposeViewControllerDelegate{
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         
+        
     }
-    
 }
-
