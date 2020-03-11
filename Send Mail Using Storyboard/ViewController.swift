@@ -58,6 +58,26 @@ extension ViewController : MFMailComposeViewControllerDelegate{
     
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         
+        if let _ = error{
+            controller.dismiss(animated: true, completion: nil)
+        }
+        
+        
+        switch result {
+            
+        case .sent:
+            print("Sent")
+            
+        case .failed:
+            print("Faild")
+        case .cancelled:
+            print("canceled")
+        case .saved:
+            print("Saved")
+            
+        default:
+            fatalError()
+        }
         
     }
 }
